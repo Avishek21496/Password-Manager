@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 
 const Login = () => {
-
+    const location = useLocation();
+    const navigate = useNavigate()
     const { signIn, signInWithGoogle,signInWithGithub, setLoading } = useContext(AuthContext);
 
     const handleLogin = e =>{
@@ -20,6 +21,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('You have Successfully logged in', { duration: 4000 })
+            navigate(location?.state ? location.state : '/')
         })
         .catch(error =>{
             toast.error('Invalid Email or Password', { duration: 4000 });
@@ -32,6 +34,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('You have Successfully Signed In with Google', { duration: 4000 });
+            navigate(location?.state ? location.state : '/')
         })
         .catch(error => toast.error('Unable to sign in with Google', { duration: 4000 }))
     }
@@ -40,6 +43,7 @@ const Login = () => {
         .then(result => {
             console.log(result.user)
             toast.success('You have Successfully Signed In with Github', { duration: 4000 });
+            navigate(location?.state ? location.state : '/')
         })
         .catch(error => toast.error('Unable to sign in with Github', { duration: 4000 }))
     }
