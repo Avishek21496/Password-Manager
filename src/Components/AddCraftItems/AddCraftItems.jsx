@@ -110,7 +110,7 @@ const AddCraftItems = () => {
                             <input id="zip" name="user_name" type="text" defaultValue={user.displayName} readOnly placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" />
                         </div>
                         <div className=" col-span-full">
-                            <button className="btn border-2 w-full border-red-800" type="submit">Add </button>
+                            <button className="btn btn-info border-2 w-full border-red-800" type="submit">Add </button>
                         </div>
                     </div>
                 </fieldset>

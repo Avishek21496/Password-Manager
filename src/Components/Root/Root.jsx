@@ -7,7 +7,7 @@ import Footer from "../Home/Footer";
 
 const Root = () => {
     return (
-        <div >
+        <div className="font-roboto">
 
             <Navbar></Navbar>
             <div className="max-w-7xl mx-auto">

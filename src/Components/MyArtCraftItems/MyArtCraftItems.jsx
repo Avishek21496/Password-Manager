@@ -126,10 +126,10 @@ const MyArtCraftItems = () => {
                             </div>
                             <div className="flex flex-wrap justify-between">
                                 <div className="space-x-2">
-                                    <Link to={`/update/${i._id}`}><button className="btn">Update</button></Link>
+                                    <Link to={`/update/${i._id}`}><button className="btn btn-success">Update</button></Link>
                                 </div>
                                 <div className="flex space-x-2 text-sm dark:text-gray-600">
-                                    <button onClick={() => handleDelete(i._id)} className="btn ">Delete</button>
+                                    <button onClick={() => handleDelete(i._id)} className="btn btn-error">Delete</button>
                                 </div>
                             </div>
                         </div>)
