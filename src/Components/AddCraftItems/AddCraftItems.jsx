@@ -39,7 +39,7 @@ const AddCraftItems = () => {
         .then(data => {
             if(data.insertedId){
                 toast.success('Item added successfully')
-                form.reset()
+                e.target.reset()
             }
         })
     }
