@@ -94,8 +94,8 @@ const Update = () => {
                                 <label htmlFor="state" className="text-sm">Stock Status</label>
                                 {/* <input id="state" type="text" placeholder="" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" /> */}
                                 <select className=" border-2 m-3 p-2" id="answer" defaultValue={stock_status} name="stock_status">
-                                    <option value="yes">In Stock</option>
-                                    <option value="no">Made to Order</option>
+                                    <option value="In Stock">In Stock</option>
+                                    <option value="Made to Order">Made to Order</option>
                                 </select>
                             </div>
                             <div className="col-span-full sm:col-span-3">
