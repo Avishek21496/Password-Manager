@@ -65,7 +65,7 @@ const AllArtCraftItems = () => {
                             <td>{i.stock_status}</td>
                             <td>{i.customization}</td>
                             <th>
-                                <Link to={`/viewDetails/${i._id}`}><button  className="btn btn-ghost btn-xs">View Details</button></Link>
+                                <Link to={`/viewDetails/${i._id}`}><button  className="btn btn-success">View Details</button></Link>
                             </th>
                         </tr>)
                     }
