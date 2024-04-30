@@ -45,7 +45,7 @@ const Home = () => {
                 </Swiper>
             </div>
 
-            <div>
+            <div className="p-5">
                 <div className="text-center">
                     <Fade direction="up" cascade damping={0.3}><h2 className="text-4xl">Craft Items</h2>
                     <p className="">Discover artisanal treasures that ignite creativity and imagination. From handmade wonders to curated collections, explore a world of craftsmanship that celebrates tradition and innovation. Elevate your space with unique pieces that tell stories and inspire connections. Unleash your inner artist with our diverse range of craft items, meticulously crafted to bring joy and beauty into every corner of your life.</p>
@@ -55,7 +55,7 @@ const Home = () => {
                     <CraftItemsSection></CraftItemsSection>
                 </div>
             </div>
-            <div>
+            <div className="p-5">
                 <ArtCraftCategories></ArtCraftCategories>
             </div>
             <Faq></Faq>

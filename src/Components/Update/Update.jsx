@@ -43,11 +43,11 @@ const Update = () => {
     }
 
     return (
-        <div>
+        // <div>
             
-            <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
+            <section className="p-3 border-2 dark:bg-gray-100 dark:text-gray-900">
                 <form onSubmit={handleUpdate}  noValidate="" action="" className="container flex flex-col mx-auto space-y-12">
-                    <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-50">
+                    <fieldset className="grid grid-cols-4 gap-6 p-4 rounded-md shadow-sm dark:bg-gray-50">
 
                         <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-6">
                             <div className="col-span-full sm:col-span-3">
@@ -114,7 +114,7 @@ const Update = () => {
 
                 </form>
             </section>
-        </div>
+        // </div>
     );
 };
 

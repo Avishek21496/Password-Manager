@@ -26,12 +26,12 @@ const CraftItemsSection = () => {
             .then(data => setCardItems(data))
     }, [])
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5  justify-center">
             {
                 cardItems.slice(0, 6).map(i =>
 
                     <Fade key={i._id} duration={1000} direction="down" cascade damping={0.2}>
-                        <div   className="card card-compact w-96 bg-base-100 shadow-xl">
+                        <div   className="card card-compact max-w-96 bg-base-100 shadow-xl">
                         <figure><img src={i.image} /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{i.item_name}</h2>

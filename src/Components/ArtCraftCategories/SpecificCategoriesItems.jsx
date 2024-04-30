@@ -14,11 +14,11 @@ const SpecificCategoriesItems = () => {
             })
     }, [subCategory])
     return (
-        <div className="flex justify-center mx-auto">
+        <div className="flex justify-center mx-auto pt-3">
             
-            <div className="grid grid-cols-3 gap-7">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-6">
                 {
-                    subCategories.map(item => <div key={item._id} className="card card-compact w-96 bg-base-100 shadow-xl">
+                    subCategories.map(item => <div key={item._id} className="card card-compact max-w-96 bg-base-100 shadow-xl">
                         <figure><img src={item.image} alt="Shoes" /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{item.item_name}</h2>

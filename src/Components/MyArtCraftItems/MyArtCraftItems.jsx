@@ -97,7 +97,7 @@ const MyArtCraftItems = () => {
     }
 
     return (
-        <div>
+        <div className="p-5">
             <div className="flex justify-center">
                 <div className="dropdown dropdown-hover">
                     <div tabIndex={0} role="button" className="btn m-1">Customization</div>
@@ -107,10 +107,10 @@ const MyArtCraftItems = () => {
                     </ul>
                 </div>
             </div>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
                 {
                     myItems?.map(i =>
-                        <div key={i._id} className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+                        <div key={i._id} className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-lg dark:bg-gray-50 dark:text-gray-800">
                             <div className="flex space-x-4">
                                 {/* <img alt="" src={user.photoURL} className="object-cover w-12 h-12 rounded-full shadow dark:bg-gray-500" /> */}
                                 <div className="flex flex-col space-y-1">

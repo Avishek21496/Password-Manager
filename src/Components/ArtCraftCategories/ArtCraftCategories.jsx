@@ -28,13 +28,13 @@ const ArtCraftCategories = () => {
     return (
         <div>
 
-            <div className="grid grid-cols-3">
+            <div className="grid lg:grid-cols-3 gap-3 md:grid-cols-2 justify-center mx-auto">
                 {
                     categories.map(cat =>
                         <Fade key={cat._id} duration={2000} cascade damping={0.2} direction="right">
-                            <button >
+                            <button className="border">
                                 <Link to={`/specificCategories/${cat.subcategory_Name}`} className="btn" key={cat._id}>
-                                    <div className="card w-96 bg-base-100  image-full">
+                                    <div className="card max-w-96 bg-base-100 image-full">
                                         <figure><img src={cat.image} alt="Shoes" /></figure>
                                         <div className="card-body">
                                             <h2 className="card-title">{cat.subcategory_Name}</h2>

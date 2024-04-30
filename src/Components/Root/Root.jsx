@@ -7,10 +7,12 @@ import Footer from "../Home/Footer";
 
 const Root = () => {
     return (
-        <div>
-            
+        <div >
+
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <div className="max-w-7xl mx-auto">
+                <Outlet></Outlet>
+            </div>
             <Toaster></Toaster>
             <Footer></Footer>
             <Tooltip id="my-tooltip"></Tooltip>
