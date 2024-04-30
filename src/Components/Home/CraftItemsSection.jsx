@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Fade } from "react-awesome-reveal";
 
 
 const CraftItemsSection = () => {
@@ -29,7 +30,8 @@ const CraftItemsSection = () => {
             {
                 cardItems.slice(0, 6).map(i =>
 
-                    <div key={i._id}  className="card card-compact w-96 bg-base-100 shadow-xl">
+                    <Fade key={i._id} duration={1000} direction="down" cascade damping={0.2}>
+                        <div   className="card card-compact w-96 bg-base-100 shadow-xl">
                         <figure><img src={i.image} /></figure>
                         <div className="card-body">
                             <h2 className="card-title">{i.item_name}</h2>
@@ -41,6 +43,7 @@ const CraftItemsSection = () => {
                             </div>
                         </div>
                     </div>
+                    </Fade>
 
                 )
             }

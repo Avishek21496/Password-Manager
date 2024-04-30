@@ -10,6 +10,7 @@ import ArtCraftCategories from "../ArtCraftCategories/ArtCraftCategories";
 import Faq from "./Faq";
 import Carrear from "./Carrear";
 import Review from "./Review";
+import { Fade } from "react-awesome-reveal";
 
 
 
@@ -46,8 +47,9 @@ const Home = () => {
 
             <div>
                 <div className="text-center">
-                    <h2 className="text-4xl">Craft Items</h2>
+                    <Fade direction="up" cascade damping={0.3}><h2 className="text-4xl">Craft Items</h2>
                     <p className="">Discover artisanal treasures that ignite creativity and imagination. From handmade wonders to curated collections, explore a world of craftsmanship that celebrates tradition and innovation. Elevate your space with unique pieces that tell stories and inspire connections. Unleash your inner artist with our diverse range of craft items, meticulously crafted to bring joy and beauty into every corner of your life.</p>
+                    </Fade>
                 </div>
                 <div className="flex justify-center mx-auto">
                     <CraftItemsSection></CraftItemsSection>

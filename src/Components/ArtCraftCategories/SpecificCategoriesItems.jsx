@@ -14,9 +14,9 @@ const SpecificCategoriesItems = () => {
             })
     }, [subCategory])
     return (
-        <div>
+        <div className="flex justify-center mx-auto">
             
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 gap-7">
                 {
                     subCategories.map(item => <div key={item._id} className="card card-compact w-96 bg-base-100 shadow-xl">
                         <figure><img src={item.image} alt="Shoes" /></figure>
@@ -28,7 +28,7 @@ const SpecificCategoriesItems = () => {
                             <p>Rating {item.rating}</p>
                             <p>Processing Time:  {item.processing_time}</p>
                             <div className="card-actions justify-end">
-                                <Link to={`/viewDetails/${item._id}`}><button className="btn btn-ghost btn-xs">View Details</button></Link>
+                                <Link to={`/viewDetails/${item._id}`}><button className="btn btn-success ">View Details</button></Link>
                             </div>
                         </div>
                     </div>)
