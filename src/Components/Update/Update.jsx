@@ -62,7 +62,7 @@ const Update = () => {
                                 <label htmlFor="email" className="text-sm">Subcategory Name</label>
                                 {/* <input id="email" type="text" placeholder="Enter the Subcategory Name" className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300" /> */}
                                 <select className=" border-2 m-3 p-2" id="answer" defaultValue={subcategory_Name} name="subcategory_Name">
-                                    <option value="Land">Landscape Painting</option>
+                                    <option value="Land Painting">Landscape Painting</option>
                                     <option value="Portrait">Portrait Drawing</option>
                                 </select>
                             </div>

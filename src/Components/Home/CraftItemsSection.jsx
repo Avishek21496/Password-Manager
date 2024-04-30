@@ -39,7 +39,7 @@ const CraftItemsSection = () => {
                             <p>Price: {i.price}</p>
                             <p>Availability: {i.stock_status}</p>
                             <div className="card-actions justify-center">
-                            <Link className="btn" to={`/viewDetails/${i._id}`}><button>View Details</button></Link>
+                            <Link className="btn btn-success" to={`/viewDetails/${i._id}`}><button>View Details</button></Link>
                             </div>
                         </div>
                     </div>
