@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import CraftItemsSection from "./CraftItemsSection";
 import ArtCraftCategories from "../ArtCraftCategories/ArtCraftCategories";
+import Faq from "./Faq";
 
 
 
@@ -53,6 +54,7 @@ const Home = () => {
             <div>
                 <ArtCraftCategories></ArtCraftCategories>
             </div>
+            <Faq></Faq>
         </div>
     );
 };

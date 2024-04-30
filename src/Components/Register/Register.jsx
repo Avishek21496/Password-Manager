@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 
 
 const Register = () => {
-    const { createUser, updateUserProfile , on , setOn} = useContext(AuthContext);
-
+    const { createUser, updateUserProfile , setOn} = useContext(AuthContext);
+    const navigate = useNavigate()
     const [registerError, setRegisterError] = useState('');
     const [show, setShow] = useState(false);
 
@@ -43,10 +43,12 @@ const Register = () => {
         createUser(email, password)
         .then(result =>{
             console.log(result.user)
+            navigate('/');
             toast.success('You have been Registered Successfully', { duration: 4000 })
             updateUserProfile(name, photo)
             .then(() => {
                 setOn(true);
+                
             } )
         })
         .catch(() => toast.error('E-mail already in use.', { duration: 4000 }))

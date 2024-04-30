@@ -25,7 +25,7 @@ const CraftItemsSection = () => {
             .then(data => setCardItems(data))
     }, [])
     return (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 border">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {
                 cardItems.slice(0, 6).map(i =>
 
