@@ -77,36 +77,37 @@ const MyArtCraftItems = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`https://a-10-server-jet.vercel.app/myItems/${id}`, {
-                method: 'DELETE'
+                    method: 'DELETE'
                 })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0){
-                        setReload(!reload)
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your file has been deleted.",
-                            icon: "success"
-                        });
-                    }
-                    
-                } )
-                
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            setReload(!reload)
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Craft item has been deleted.",
+                                icon: "success"
+                            });
+                        }
+
+                    })
+
             }
         });
     }
 
     return (
         <div>
-            <h2>My item: {myItems?.length}</h2>
-            <div className="dropdown dropdown-hover">
-                <div tabIndex={0} role="button" className="btn m-1">Customization</div>
-                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li onClick={() => handleFilter("yes")}><button>Yes</button></li>
-                    <li onClick={() => handleFilter("no")}><button>No</button></li>
-                </ul>
+            <div className="flex justify-center">
+                <div className="dropdown dropdown-hover">
+                    <div tabIndex={0} role="button" className="btn m-1">Customization</div>
+                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                        <li onClick={() => handleFilter("yes")}><button>Yes</button></li>
+                        <li onClick={() => handleFilter("no")}><button>No</button></li>
+                    </ul>
+                </div>
             </div>
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-3 gap-4">
                 {
                     myItems?.map(i =>
                         <div key={i._id} className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
