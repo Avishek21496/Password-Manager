@@ -6,6 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 const AllArtCraftItems = () => {
 
     const {reload, setReload} = useContext(AuthContext)
+    const spinner = ()=> <span className="loading loading-spinner text-error"></span>
 
     const [allCraft, setAllCraft] = useState([])
     useEffect( ()=>{
@@ -26,8 +27,11 @@ const AllArtCraftItems = () => {
                     <tr>
 
                         <th>Item Name</th>
-                        <th>Description</th>
+                        <th>Processing Time</th>
+                        <th>Rating</th>
                         <th>Price</th>
+                        <th>Stock Status</th>
+                        <th>Customization</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -45,16 +49,21 @@ const AllArtCraftItems = () => {
                                     </div>
                                     <div>
                                         <div className="font-bold">{i.item_name}</div>
-                                        <div className="text-sm opacity-50">United States</div>
+                                        <div className="text-sm opacity-50">{i.subcategory_Name}</div>
                                     </div>
                                 </div>
                             </td>
                             <td>
-                                {i.short_description}
-                                <br />
-                                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                                {i.processing_time}
+                                
+                            </td>
+                            <td>
+                                {i.rating}
+                                
                             </td>
                             <td>{i.price}</td>
+                            <td>{i.stock_status}</td>
+                            <td>{i.customization}</td>
                             <th>
                                 <Link to={`/viewDetails/${i._id}`}><button  className="btn btn-ghost btn-xs">View Details</button></Link>
                             </th>
