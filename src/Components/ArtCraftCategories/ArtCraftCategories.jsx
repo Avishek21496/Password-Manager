@@ -31,8 +31,8 @@ const ArtCraftCategories = () => {
             <div className="grid lg:grid-cols-3 gap-3 md:grid-cols-2 justify-center mx-auto">
                 {
                     categories.map(cat =>
-                        <Fade key={cat._id} duration={2000} cascade damping={0.2} direction="right">
-                            <button className="border">
+                        <Fade key={cat._id} duration={2000} cascade damping={0.2} direction="up">
+                            <button className="">
                                 <Link to={`/specificCategories/${cat.subcategory_Name}`} className="btn" key={cat._id}>
                                     <div className="card max-w-96 bg-base-100 image-full">
                                         <figure><img src={cat.image} alt="Shoes" /></figure>

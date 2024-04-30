@@ -17,7 +17,7 @@ user can access the public routes or pages, but to go to protected or private ro
 
 - There is light/dark mode theme is applied to the website. Slider banner is used in the home page using swiper slider. Additionally react tooltip and react awesome reveals library has been used to make the website more attractive.
 
-#Selected Category is: Painting and Drawing
+# Selected Category is: Painting and Drawing.
 sub categories are
  a. Landscape Painting
  b. Portrait Drawing

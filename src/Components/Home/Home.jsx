@@ -46,16 +46,20 @@ const Home = () => {
             </div>
 
             <div className="p-5">
-                <div className="text-center">
+                <div className="text-center p-5">
                     <Fade direction="up" cascade damping={0.3}><h2 className="text-4xl">Craft Items</h2>
-                    <p className="">Discover artisanal treasures that ignite creativity and imagination. From handmade wonders to curated collections, explore a world of craftsmanship that celebrates tradition and innovation. Elevate your space with unique pieces that tell stories and inspire connections. Unleash your inner artist with our diverse range of craft items, meticulously crafted to bring joy and beauty into every corner of your life.</p>
+                        <p className="p-2">Discover artisanal treasures that ignite creativity and imagination. From handmade wonders to curated collections, explore a world of craftsmanship that celebrates tradition and innovation. Elevate your space with unique pieces that tell stories and inspire connections. Unleash your inner artist with our diverse range of craft items, meticulously crafted to bring joy and beauty into every corner of your life.</p>
                     </Fade>
                 </div>
                 <div className="flex justify-center mx-auto">
+
                     <CraftItemsSection></CraftItemsSection>
                 </div>
             </div>
-            <div className="p-5">
+            <div className="text-center p-5 flex flex-col justify-center mx-auto">
+                <Fade direction="up" cascade damping={0.3}><h2 className="text-4xl">Art &Craft Categories Section</h2>
+                    <p className="p-4 pb-5">Here you can find all our art and craft items under different categories.</p>
+                </Fade>
                 <ArtCraftCategories></ArtCraftCategories>
             </div>
             <Faq></Faq>
