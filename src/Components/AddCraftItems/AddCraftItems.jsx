@@ -40,7 +40,7 @@ const AddCraftItems = () => {
 
         //now send data to the server
         // fetch('https://a-10-server-jet.vercel.app/items',{
-        fetch('http://localhost:5000/save',{
+        fetch('https://crafto-pia-server-side.vercel.app/save',{
             method: 'POST',
             headers: {
                 'content-type':'application/json'
