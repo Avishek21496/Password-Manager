@@ -126,7 +126,7 @@ const MyArtCraftItems = () => {
                 {savedPasswords.map((savedPassword, index) => (
                 <ul key={index} className="p-2 border-2 border-red-300">
                   <li>Platform name: {savedPassword.platform_name}</li>
-                  <li>Platform email: {savedPassword.platform_email}</li>
+                  <li>Platform email: {savedPassword.playform_email}</li>
                   <li>Platform password: {savedPassword.platform_password}</li>
                 </ul>
                 ))}
