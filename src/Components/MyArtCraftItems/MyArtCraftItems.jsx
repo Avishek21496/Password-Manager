@@ -10,6 +10,9 @@ const MyArtCraftItems = () => {
     const [myItems, setMyItems] = useState([])
     const [reload, setReload] = useState(true)
 
+    // pasword state
+    const [savedPasswords, setSavedPasswords] = useState([])
+
 
     useEffect(() => {
         fetch(`https://a-10-server-jet.vercel.app/myItems/${user.email}`)
@@ -17,6 +20,17 @@ const MyArtCraftItems = () => {
             .then(data => {
                 console.log(data)
                 setMyItems(data)
+
+            })
+    }, [reload, user])
+
+    // ----------------------------PAsswords api----------------------------------------------
+    useEffect(() => {
+        fetch(`https://crafto-pia-server-side.vercel.app/save/${user.email}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                setSavedPasswords(data)
 
             })
     }, [reload, user])
@@ -106,6 +120,17 @@ const MyArtCraftItems = () => {
                         <li onClick={() => handleFilter("no")}><button>No</button></li>
                     </ul>
                 </div>
+            </div>
+            <div>
+                <h4>Here are ally of my saved passwords</h4>
+                {savedPasswords.map((savedPassword, index) => (
+                <ul key={index} className="p-2 border-2 border-red-300">
+                  <li>Platform name: {savedPassword.platform_name}</li>
+                  <li>Platform email: {savedPassword.platform_email}</li>
+                  <li>Platform password: {savedPassword.platform_password}</li>
+                </ul>
+                ))}
+
             </div>
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
                 {
