@@ -21,7 +21,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('You have Successfully logged in', { duration: 4000 })
-            navigate(location?.state ? location.state : '/')
+            navigate(location?.state ? location.state : '/addCredentials')
         })
         .catch(error =>{
             toast.error('Invalid Email or Password', { duration: 4000 });
@@ -34,7 +34,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('You have Successfully Signed In with Google', { duration: 4000 });
-            navigate(location?.state ? location.state : '/')
+            navigate(location?.state ? location.state : '/addCredentials')
         })
         .catch(error => toast.error('Unable to sign in with Google', { duration: 4000 }))
     }

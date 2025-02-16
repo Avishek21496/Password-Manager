@@ -43,7 +43,7 @@ const Register = () => {
         createUser(email, password)
         .then(result =>{
             console.log(result.user)
-            navigate('/');
+            navigate('/addCredentials');
             toast.success('You have been Registered Successfully', { duration: 4000 })
             updateUserProfile(name, photo)
             .then(() => {
