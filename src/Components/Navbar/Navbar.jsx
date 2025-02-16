@@ -34,7 +34,7 @@ const Navbar = () => {
             })
     }
     const navlinks = <>
-        <li><NavLink to='/'>Home</NavLink></li>
+        {/* <li><NavLink to='/'>Home</NavLink></li> */}
         <li><NavLink to='/addCredentials'>Add Credentials</NavLink></li>
         <li><NavLink to='/myCredentialsList'>My Credentials List</NavLink></li>
     </>
