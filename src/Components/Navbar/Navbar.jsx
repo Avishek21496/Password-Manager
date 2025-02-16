@@ -23,6 +23,7 @@ const Navbar = () => {
 
 
     const { logOut, user, loading } = useContext(AuthContext)
+    console.log('user url', user?.photoURL)
     const handleSignOut = () => {
         logOut()
             .then(result => {
@@ -34,10 +35,8 @@ const Navbar = () => {
     }
     const navlinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/allArtCraftItems'>All Art & Craft Items</NavLink></li>
-        <li><NavLink to='/addCraftItems'>Add Craft Items</NavLink></li>
-        <li><NavLink to='/myArtCraftItems'>My Art & Craft List</NavLink></li>
-        <li><NavLink to='/offer'>Offers</NavLink></li>
+        <li><NavLink to='/addCredentials'>Add Credentials</NavLink></li>
+        <li><NavLink to='/myCredentialsList'>My Credentials List</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -50,8 +49,7 @@ const Navbar = () => {
                         {navlinks}
                     </ul>
                 </div>
-                {/* <a className="btn btn-ghost text-xl ">ArtCraftopia</a> */}
-                <a className="btn btn-ghost text-xl">Craftopia</a>
+                <a className="btn btn-ghost text-xl">Password Manager</a>
 
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -85,8 +83,8 @@ const Navbar = () => {
                             {/* <p className="hidden md:block lg:block">{user.displayName}</p>  */}
                             <div className="btn btn-ghost btn-circle avatar flex">
                                 <div  className={`w-10 rounded-full hover:${user.displayName}`}>
-                                    {/* <img src={user.photoURL} title={user.displayName || 'No User Name'} alt="User Avatar" /> */}
-                                    <img src={user.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} alt="User Avatar" />
+                                    {loading ? <h5>Loading</h5> :<img src={user?.photoURL} title={user.displayName || 'No User Name'} alt="User Avatar" />}
+                                    {/* <img src={user?.photoURL} data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName} alt="User Avatar" /> */}
                                 </div>
                             </div>
                             <button className="btn btn-outline btn-accent" onClick={handleSignOut}>Logout</button>

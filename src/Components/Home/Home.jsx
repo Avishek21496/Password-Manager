@@ -81,9 +81,6 @@ const Home = () => {
                 </Fade>
                 <ArtCraftCategories></ArtCraftCategories>
             </div>
-            <Faq></Faq>
-            <Carrear></Carrear>
-            <Review></Review>
         </div>
     );
 };

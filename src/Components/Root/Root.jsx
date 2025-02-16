@@ -14,7 +14,6 @@ const Root = () => {
                 <Outlet></Outlet>
             </div>
             <Toaster></Toaster>
-            <Footer></Footer>
             <Tooltip id="my-tooltip"></Tooltip>
 
         </div>

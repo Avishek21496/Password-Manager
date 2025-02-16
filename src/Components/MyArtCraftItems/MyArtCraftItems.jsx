@@ -112,15 +112,6 @@ const MyArtCraftItems = () => {
 
     return (
         <div className="p-5">
-            <div className="flex justify-center">
-                <div className="dropdown dropdown-hover">
-                    <div tabIndex={0} role="button" className="btn m-1">Customization</div>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <li onClick={() => handleFilter("yes")}><button>Yes</button></li>
-                        <li onClick={() => handleFilter("no")}><button>No</button></li>
-                    </ul>
-                </div>
-            </div>
             <div>
                 <h4>Here are ally of my saved passwords</h4>
                 {savedPasswords.map((savedPassword, index) => (
@@ -132,7 +123,7 @@ const MyArtCraftItems = () => {
                 ))}
 
             </div>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4 hidden">
                 {
                     myItems?.map(i =>
                         <div key={i._id} className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-lg dark:bg-gray-50 dark:text-gray-800">
