@@ -6,60 +6,58 @@ import Home from "../Components/Home/Home";
 
 import Register from "../Components/Register/Register";
 import Login from "../Components/Login/Login";
-import AddCraftItems from "../Components/AddCraftItems/AddCraftItems";
+import AddCredentials from "../Components/AddCredentials/AddCredentials";
+import MyCredentialsList from "../Components/MyCredentialsList/MyCredentialsList";
 import PrivateRoutes from "./PrivateRoutes";
-import AllArtCraftItems from "../Components/AllArtCraftItems/AllArtCraftItems";
-import ViewDetails from "../Components/ViewDetails/ViewDetails";
-import MyArtCraftItems from "../Components/MyArtCraftItems/MyArtCraftItems";
 import Update from "../Components/Update/Update";
-import SpecificCategoriesItems from "../Components/ArtCraftCategories/SpecificCategoriesItems";
+import { SERVER_URL } from "../Constants/url";
 
 const router = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <Root></Root>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
         path: "/",
-        element: <Root></Root>,
-        errorElement: <ErrorPage></ErrorPage>,
-        children:[
-            {
-                path: '/',
-                element: <Home></Home>
-            },
-            {
-                path: '/allArtCraftItems',
-                element: <AllArtCraftItems></AllArtCraftItems>,
-                // loader: ()=> fetch('https://a-10-server-jet.vercel.app/items')
-            },
-            {
-                path: '/viewDetails/:id',
-                element: <PrivateRoutes><ViewDetails></ViewDetails></PrivateRoutes>
-            },
-            {
-                path: '/addCredentials',
-                element: <PrivateRoutes><AddCraftItems></AddCraftItems></PrivateRoutes>
-            },
-            {
-                path: '/myCredentialsList',
-                element: <PrivateRoutes><MyArtCraftItems></MyArtCraftItems></PrivateRoutes>
-            },
-            {
-                path: '/update/:id',
-                element: <PrivateRoutes><Update></Update></PrivateRoutes>,
-                loader: ({params})=> fetch(`https://a-10-server-jet.vercel.app/items/${params.id}`)
-            },
-            {
-                path: '/specificCategories/:subCategory',
-                element: <SpecificCategoriesItems></SpecificCategoriesItems>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>
-            }
-        ]
-    },
+        element: <Home></Home>,
+      },
+      {
+        path: "/addCredentials",
+        element: (
+          <PrivateRoutes>
+            <AddCredentials></AddCredentials>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/myCredentialsList",
+        element: (
+          <PrivateRoutes>
+            <MyCredentialsList />
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoutes>
+            <Update></Update>
+          </PrivateRoutes>
+        ),
+        loader: ({ params }) =>
+          fetch(`${SERVER_URL}/selectedPlatform/${params.id}`),
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
+      {
+        path: "/login",
+        element: <Login></Login>,
+      },
+    ],
+  },
 ]);
 
 export default router;

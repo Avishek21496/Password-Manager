@@ -34,7 +34,7 @@ const Navbar = () => {
             })
     }
     const navlinks = <>
-        {/* <li><NavLink to='/'>Home</NavLink></li> */}
+        <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addCredentials'>Add Credentials</NavLink></li>
         <li><NavLink to='/myCredentialsList'>My Credentials List</NavLink></li>
     </>
@@ -58,9 +58,6 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {/* <Link to='/register'><button className="btn">Register</button></Link>
-                <Link to='/login'><button className="btn">LOg in</button></Link>
-                <button onClick={handleSignOut} className="btn">Sign Out</button> */}
                 <label onChange={handleToggle} className="swap swap-rotate">
 
                     {/* this hidden checkbox controls the state */}

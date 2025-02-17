@@ -1,22 +1,15 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { SERVER_URL } from "../../Constants/url";
 
-const Update = () => {
-  const { user, setReload } = useContext(AuthContext);
-  const loadedItem = useLoaderData();
-  const {
-    _id,
-    platform_name,
-    platform_owner,
-    platform_password,
-    platform_email,
-  } = loadedItem;
-
-  const handleUpdate = (e) => {
+export const AddCredentials = () => {
+  const { user } = useContext(AuthContext);
+  console.log("test user", user);
+  const handleAddCraft = (e) => {
+    console.log(user);
     e.preventDefault();
+
     const form = new FormData(e.currentTarget);
 
     const platform_name = form.get("platform");
@@ -26,7 +19,7 @@ const Update = () => {
     const user_email = user.email;
     const user_name = user.displayName;
 
-    const updateInfo = {
+    const savedPlatform = {
       user_name,
       user_email,
       platform_name,
@@ -34,33 +27,26 @@ const Update = () => {
       platform_email,
       platform_password,
     };
-
-    console.log(updateInfo);
-    fetch(`${SERVER_URL}/updateCredentials/${_id}`, {
-      method: "PUT",
+    fetch(`${SERVER_URL}/saveCredentials`, {
+      method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(updateInfo),
+      body: JSON.stringify(savedPlatform),
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.modifiedCount > 0) {
-          setReload(true);
-          toast.success("Your information has been successfully updated.", {
-            duration: 3000,
-          });
+        if (data.insertedId) {
+          toast.success("Item added successfully");
+          e.target.reset();
         }
         console.log(data);
       });
   };
-
   return (
-    // <div>
-
-    <section className="p-3 border-2 dark:bg-gray-100 dark:text-gray-900">
+    <section className="p-6 dark:bg-gray-100 dark:text-gray-900">
       <form
-        onSubmit={handleUpdate}
+        onSubmit={handleAddCraft}
         noValidate=""
         action=""
         className="container flex flex-col mx-auto space-y-12"
@@ -74,22 +60,8 @@ const Update = () => {
               <input
                 id="firstname"
                 type="text"
-                defaultValue={platform_name}
                 name="platform"
                 placeholder="Enter Platform Name"
-                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
-              />
-            </div>
-            <div className="col-span-full sm:col-span-3">
-              <label htmlFor="lastname" className="text-sm">
-                Email
-              </label>
-              <input
-                id="lastname"
-                name="owner"
-                defaultValue={platform_email}
-                type="text"
-                placeholder="Enter the owner Name"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
             </div>
@@ -99,9 +71,20 @@ const Update = () => {
               </label>
               <input
                 id="lastname"
-                name="email"
-                defaultValue={platform_owner}
+                name="owner"
                 type="text"
+                placeholder="Enter the owner Name"
+                className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
+              />
+            </div>
+            <div className="col-span-full sm:col-span-3">
+              <label htmlFor="lastname" className="text-sm">
+                Email
+              </label>
+              <input
+                id="lastname"
+                name="email"
+                type="email"
                 placeholder="Enter email address"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
               />
@@ -113,7 +96,6 @@ const Update = () => {
               <input
                 id="lastname"
                 name="password"
-                defaultValue={platform_password}
                 type="text"
                 placeholder="Enter password"
                 className="w-full rounded-md focus:ring focus:ring-opacity-75 dark:text-gray-50 focus:dark:ring-violet-600 dark:border-gray-300"
@@ -124,15 +106,14 @@ const Update = () => {
                 className="btn btn-info border-2 w-full border-red-800"
                 type="submit"
               >
-                Update
+                Add{" "}
               </button>
             </div>
           </div>
         </fieldset>
       </form>
     </section>
-    // </div>
   );
 };
 
-export default Update;
+export default AddCredentials;
