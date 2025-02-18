@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate()
-    const { signIn, signInWithGoogle,signInWithGithub, setLoading } = useContext(AuthContext);
+    const { signIn, signInWithGoogle, setLoading } = useContext(AuthContext);
 
     const handleLogin = e =>{
         e.preventDefault();
@@ -21,7 +21,7 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('You have Successfully logged in', { duration: 4000 })
-            navigate(location?.state ? location.state : '/addCredentials')
+            navigate(location?.state ? location.state : '/')
         })
         .catch(error =>{
             toast.error('Invalid Email or Password', { duration: 4000 });
@@ -34,18 +34,9 @@ const Login = () => {
         .then(result =>{
             console.log(result.user)
             toast.success('You have Successfully Signed In with Google', { duration: 4000 });
-            navigate(location?.state ? location.state : '/addCredentials')
-        })
-        .catch(error => toast.error('Unable to sign in with Google', { duration: 4000 }))
-    }
-    const handleSignInWithGithub = () =>{
-        signInWithGithub()
-        .then(result => {
-            console.log(result.user)
-            toast.success('You have Successfully Signed In with Github', { duration: 4000 });
             navigate(location?.state ? location.state : '/')
         })
-        .catch(error => toast.error('Unable to sign in with Github', { duration: 4000 }))
+        .catch(error => toast.error('Unable to sign in with Google', { duration: 4000 }))
     }
     return (
         <div>

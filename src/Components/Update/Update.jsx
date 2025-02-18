@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import toast from "react-hot-toast";
@@ -6,6 +6,7 @@ import { SERVER_URL } from "../../Constants/url";
 
 const Update = () => {
   const { user, setReload } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
   const loadedItem = useLoaderData();
   const {
     _id,
@@ -17,6 +18,7 @@ const Update = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault();
+    setLoading(true);
     const form = new FormData(e.currentTarget);
 
     const platform_name = form.get("platform");
@@ -25,6 +27,17 @@ const Update = () => {
     const platform_password = form.get("password");
     const user_email = user.email;
     const user_name = user.displayName;
+
+    if (
+      !platform_name ||
+      !platform_owner ||
+      !platform_email ||
+      !platform_password
+    ) {
+      toast.error("All fields are required!");
+      setLoading(false);
+      return;
+    }
 
     const updateInfo = {
       user_name,
@@ -47,11 +60,14 @@ const Update = () => {
       .then((data) => {
         if (data.modifiedCount > 0) {
           setReload(true);
+          setLoading(false);
           toast.success("Your information has been successfully updated.", {
             duration: 3000,
           });
         }
-        console.log(data);
+        if ((data.modifiedCount == 0)) {
+          setLoading(false);
+        }
       });
   };
 
@@ -120,12 +136,18 @@ const Update = () => {
               />
             </div>
             <div className=" col-span-full">
-              <button
-                className="btn btn-info border-2 w-full border-red-800"
-                type="submit"
-              >
-                Update
-              </button>
+              {loading ? (
+                <div className="fixed inset-0 flex items-center justify-center bg-white bg-opacity-75 z-50">
+                  <span className="loading loading-spinner loading-lg"></span>
+                </div>
+              ) : (
+                <button
+                  className="btn btn-info border-2 w-full border-red-800"
+                  type="submit"
+                >
+                  Update Credentials
+                </button>
+              )}
             </div>
           </div>
         </fieldset>
